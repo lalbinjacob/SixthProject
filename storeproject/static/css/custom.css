@@ -1,0 +1,53 @@
+html{
+  height: 100%;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  position:relative;
+  margin: 0;
+  min-height: 100%;
+  padding-bottom: 6.74rem;
+  box-sizing:inherit;
+  background:#000000;
+
+}
+/***Navbar***/
+.nav-item{
+     color:white;
+     letter-spacing:.2em;
+     font-size:14px;
+     text-transform:uppercase;
+
+}
+
+.dropdown-item{
+     letter-spacing:.2em;
+     font-size:14px;
+     text-transform:uppercase;
+}
+
+.about{
+   width:100%;
+   padding-top:50px;
+}
+
+
+
+
+.my-footer{
+    background-color:#f8f8fa;
+    height:60px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+
+
+}
+.my-footer p{
+    padding-top:20px;
+    font-size:14px;
+
+
+}

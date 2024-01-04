@@ -1,0 +1,31 @@
+body{
+  background: #696969;
+}
+.container{
+     padding-bottom: 10px;
+     padding-top: 10px;
+}
+.card{
+    background-color: #000000;
+}
+
+
+.card-header{
+       font-size: 30px;
+       background-color: #00FF00;
+}
+label{
+     color:white;
+}
+
+#id_gender,#id_materials_provide{
+          display: inline-flex;
+          gap: 20px;
+}
+.messages h5{
+      color:red;
+      text-align: center;
+}
+.messages h6{
+   text-align: center;
+}

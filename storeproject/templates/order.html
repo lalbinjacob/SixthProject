@@ -1,0 +1,69 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            ORDER FORM
+        </div>
+        <div class="card-body">
+            <form method="post" id="OrderingForm" data-courses-url="{% url 'ajax_load_courses' %}" class="form-horizontal" role="form">
+            {% csrf_token %}
+            {% include 'message.html' %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-primary">
+
+                <a href="/logout" class="btn btn-success" role="button">Logout</a>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/slim.min.js' %}"></script>
+
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" ></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+    $("#id_department").change(function () {
+        const url = $("#OrderingForm").attr("data-courses-url");  // get the url of the `load_courses` view
+        const departmentId = $(this).val();  // get the selected department ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /members/ajax/load-courses/ )
+            data: {
+                'department_id': departmentId       // GET parameters
+            },
+            success: function (data) {
+                $("#id_course").html(data);
+            }
+        });
+
+    });
+
+</script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+    $( "#anim" ).on( "change", function() {
+      $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+    });
+  } );
+  </script>
+</body>
+</html>
